@@ -18,6 +18,17 @@
 		691EBDB71FC57385005FDCAF /* Opt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB61FC57385005FDCAF /* Opt.swift */; };
 		691EBDB91FC57399005FDCAF /* RawSocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB81FC57399005FDCAF /* RawSocketFactory.swift */; };
 		691EBDBB1FC573BA005FDCAF /* Xsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDBA1FC573BA005FDCAF /* Xsocket.swift */; };
+		691EBE4B1FC66E61005FDCAF /* XSocketMac.h in Headers */ = {isa = PBXBuildFile; fileRef = 691EBE491FC66E61005FDCAF /* XSocketMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		691EBE4F1FC66E6A005FDCAF /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB41FC5736F005FDCAF /* IPAddress.swift */; };
+		691EBE501FC66E6E005FDCAF /* RawSocketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB01FC5732C005FDCAF /* RawSocketProtocol.swift */; };
+		691EBE511FC66E71005FDCAF /* GCDTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDA81FC5723B005FDCAF /* GCDTCPSocket.swift */; };
+		691EBE521FC66E74005FDCAF /* NWTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDAA1FC57242005FDCAF /* NWTCPSocket.swift */; };
+		691EBE531FC66E79005FDCAF /* StreamScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB21FC57341005FDCAF /* StreamScanner.swift */; };
+		691EBE541FC66E7D005FDCAF /* Opt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB61FC57385005FDCAF /* Opt.swift */; };
+		691EBE551FC66E81005FDCAF /* RawSocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB81FC57399005FDCAF /* RawSocketFactory.swift */; };
+		691EBE561FC66E85005FDCAF /* Xsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDBA1FC573BA005FDCAF /* Xsocket.swift */; };
+		693A353A1FC66F52007FDE26 /* AxLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693A35381FC66F4B007FDE26 /* AxLogger.framework */; };
+		693A353C1FC66F5C007FDE26 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693A353B1FC66F5C007FDE26 /* CocoaAsyncSocket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +45,11 @@
 		691EBDB61FC57385005FDCAF /* Opt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opt.swift; sourceTree = "<group>"; };
 		691EBDB81FC57399005FDCAF /* RawSocketFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawSocketFactory.swift; sourceTree = "<group>"; };
 		691EBDBA1FC573BA005FDCAF /* Xsocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xsocket.swift; sourceTree = "<group>"; };
+		691EBE471FC66E61005FDCAF /* Xsocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Xsocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		691EBE491FC66E61005FDCAF /* XSocketMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSocketMac.h; sourceTree = "<group>"; };
+		691EBE4A1FC66E61005FDCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		693A35381FC66F4B007FDE26 /* AxLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AxLogger.framework; path = Carthage/Build/Mac/AxLogger.framework; sourceTree = SOURCE_ROOT; };
+		693A353B1FC66F5C007FDE26 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,15 +62,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		691EBE431FC66E61005FDCAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				693A353C1FC66F5C007FDE26 /* CocoaAsyncSocket.framework in Frameworks */,
+				693A353A1FC66F52007FDE26 /* AxLogger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		691EBD931FC5705B005FDCAF = {
 			isa = PBXGroup;
 			children = (
+				693A35371FC66F18007FDE26 /* macf */,
+				691EBE571FC66ED1005FDCAF /* framework */,
 				691EBDAE1FC57310005FDCAF /* AxLogger.framework */,
 				691EBDAC1FC572B9005FDCAF /* CocoaAsyncSocket.framework */,
 				691EBD9F1FC5705B005FDCAF /* XSocket */,
+				691EBE481FC66E61005FDCAF /* XSocketMac */,
 				691EBD9E1FC5705B005FDCAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				691EBD9D1FC5705B005FDCAF /* XSocket.framework */,
+				691EBE471FC66E61005FDCAF /* Xsocket.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +113,31 @@
 			path = XSocket;
 			sourceTree = "<group>";
 		};
+		691EBE481FC66E61005FDCAF /* XSocketMac */ = {
+			isa = PBXGroup;
+			children = (
+				691EBE491FC66E61005FDCAF /* XSocketMac.h */,
+				691EBE4A1FC66E61005FDCAF /* Info.plist */,
+			);
+			path = XSocketMac;
+			sourceTree = "<group>";
+		};
+		691EBE571FC66ED1005FDCAF /* framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = framework;
+			sourceTree = "<group>";
+		};
+		693A35371FC66F18007FDE26 /* macf */ = {
+			isa = PBXGroup;
+			children = (
+				693A353B1FC66F5C007FDE26 /* CocoaAsyncSocket.framework */,
+				693A35381FC66F4B007FDE26 /* AxLogger.framework */,
+			);
+			path = macf;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -92,6 +146,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				691EBDA21FC5705B005FDCAF /* XSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		691EBE441FC66E61005FDCAF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				691EBE4B1FC66E61005FDCAF /* XSocketMac.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +178,24 @@
 			productReference = 691EBD9D1FC5705B005FDCAF /* XSocket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		691EBE461FC66E61005FDCAF /* XSocketMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 691EBE4E1FC66E61005FDCAF /* Build configuration list for PBXNativeTarget "XSocketMac" */;
+			buildPhases = (
+				691EBE421FC66E61005FDCAF /* Sources */,
+				691EBE431FC66E61005FDCAF /* Frameworks */,
+				691EBE441FC66E61005FDCAF /* Headers */,
+				691EBE451FC66E61005FDCAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XSocketMac;
+			productName = XSocketMac;
+			productReference = 691EBE471FC66E61005FDCAF /* Xsocket.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -128,6 +208,10 @@
 					691EBD9C1FC5705B005FDCAF = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+					};
+					691EBE461FC66E61005FDCAF = {
+						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -145,12 +229,20 @@
 			projectRoot = "";
 			targets = (
 				691EBD9C1FC5705B005FDCAF /* XSocket */,
+				691EBE461FC66E61005FDCAF /* XSocketMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		691EBD9B1FC5705B005FDCAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		691EBE451FC66E61005FDCAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,6 +264,21 @@
 				691EBDB51FC5736F005FDCAF /* IPAddress.swift in Sources */,
 				691EBDB11FC5732C005FDCAF /* RawSocketProtocol.swift in Sources */,
 				691EBDB71FC57385005FDCAF /* Opt.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		691EBE421FC66E61005FDCAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				691EBE551FC66E81005FDCAF /* RawSocketFactory.swift in Sources */,
+				691EBE561FC66E85005FDCAF /* Xsocket.swift in Sources */,
+				691EBE4F1FC66E6A005FDCAF /* IPAddress.swift in Sources */,
+				691EBE521FC66E74005FDCAF /* NWTCPSocket.swift in Sources */,
+				691EBE501FC66E6E005FDCAF /* RawSocketProtocol.swift in Sources */,
+				691EBE511FC66E71005FDCAF /* GCDTCPSocket.swift in Sources */,
+				691EBE531FC66E79005FDCAF /* StreamScanner.swift in Sources */,
+				691EBE541FC66E7D005FDCAF /* Opt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +412,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = XSocket/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -333,6 +441,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = XSocket/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -343,6 +452,62 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		691EBE4C1FC66E61005FDCAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = XSocketMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
+				PRODUCT_NAME = Xsocket;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		691EBE4D1FC66E61005FDCAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = XSocketMac/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
+				PRODUCT_NAME = Xsocket;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -363,6 +528,15 @@
 			buildConfigurations = (
 				691EBDA61FC5705B005FDCAF /* Debug */,
 				691EBDA71FC5705B005FDCAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		691EBE4E1FC66E61005FDCAF /* Build configuration list for PBXNativeTarget "XSocketMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				691EBE4C1FC66E61005FDCAF /* Debug */,
+				691EBE4D1FC66E61005FDCAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
