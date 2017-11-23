@@ -45,7 +45,7 @@
 		691EBDB61FC57385005FDCAF /* Opt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opt.swift; sourceTree = "<group>"; };
 		691EBDB81FC57399005FDCAF /* RawSocketFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawSocketFactory.swift; sourceTree = "<group>"; };
 		691EBDBA1FC573BA005FDCAF /* Xsocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xsocket.swift; sourceTree = "<group>"; };
-		691EBE471FC66E61005FDCAF /* Xsocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Xsocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		691EBE471FC66E61005FDCAF /* XSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		691EBE491FC66E61005FDCAF /* XSocketMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSocketMac.h; sourceTree = "<group>"; };
 		691EBE4A1FC66E61005FDCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		693A35381FC66F4B007FDE26 /* AxLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AxLogger.framework; path = Carthage/Build/Mac/AxLogger.framework; sourceTree = SOURCE_ROOT; };
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				691EBD9D1FC5705B005FDCAF /* XSocket.framework */,
-				691EBE471FC66E61005FDCAF /* Xsocket.framework */,
+				691EBE471FC66E61005FDCAF /* XSocket.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 			);
 			name = XSocketMac;
 			productName = XSocketMac;
-			productReference = 691EBE471FC66E61005FDCAF /* Xsocket.framework */;
+			productReference = 691EBE471FC66E61005FDCAF /* XSocket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -476,7 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
-				PRODUCT_NAME = Xsocket;
+				PRODUCT_NAME = XSocket;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -504,7 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
-				PRODUCT_NAME = Xsocket;
+				PRODUCT_NAME = XSocket;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;

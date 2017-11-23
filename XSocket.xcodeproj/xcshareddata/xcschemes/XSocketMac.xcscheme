@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "691EBE461FC66E61005FDCAF"
-               BuildableName = "XSocketMac.framework"
+               BuildableName = "XSocket.framework"
                BlueprintName = "XSocketMac"
                ReferencedContainer = "container:XSocket.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "691EBE461FC66E61005FDCAF"
-            BuildableName = "XSocketMac.framework"
+            BuildableName = "XSocket.framework"
             BlueprintName = "XSocketMac"
             ReferencedContainer = "container:XSocket.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "691EBE461FC66E61005FDCAF"
-            BuildableName = "XSocketMac.framework"
+            BuildableName = "XSocket.framework"
             BlueprintName = "XSocketMac"
             ReferencedContainer = "container:XSocket.xcodeproj">
          </BuildableReference>
