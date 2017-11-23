@@ -22,7 +22,7 @@ extension NWTCPConnectionState: CustomStringConvertible {
     }
 }
 
-public class NWTCPSocket: NSObject, RawSocketProtocol {
+open  class NWTCPSocket: NSObject, RawSocketProtocol {
     /**
      Disconnect the socket immediately.
      
@@ -42,8 +42,7 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
     public func disconnect(becauseOf error: Error?) {
         
     }
-
-    public /**
+    /**
      Connect to remote host.
      
      - parameter host:        Remote host.
@@ -56,7 +55,8 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
      
      - throws: The error occured when connecting to host.
      */
-    func connectTo(_ host: String, port: Int, delegate: RawSocketDelegate, queue: DispatchQueue, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws  {
+    
+    open  func connectTo(_ host: String, port: Int, delegate: RawSocketDelegate, queue: DispatchQueue, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws  {
         let endpoint = NWHostEndpoint(hostname: host, port: "\(port)")
         let tlsParameters = NWTLSParameters()
         if let tlsSettings = tlsSettings as? [String: AnyObject] {
@@ -112,21 +112,21 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
         return connection != nil && connection!.state == .connected
     }
 
-    public func start(){
+    open func start(){
         
     }
     public var  readBufferSize:Int{
         return   Opt.MAXNWTCPSocketReadDataSize
     }
-    var cID:Int = 0
-    var cIDString:String {
+    open var cID:Int = 0
+    open var cIDString:String {
         get {
             
             return "RawTCPSocket-\(cID)"
             //return "[" + objectClassString(self) + "-\(cID)" + "]" //self.classSFName()
         }
     }
-    override init() {
+    public  override init() {
         
         cID = SFTCPSocketID
         SFTCPSocketID += 1
@@ -200,7 +200,7 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
 
      - throws: Never throws.
      */
-    public func connectTo(_ host: String, port: UInt16, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws {
+    open  func connectTo(_ host: String, port: UInt16, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws {
         let endpoint = NWHostEndpoint(hostname: host, port: "\(port)")
 //        let tlsParameters = NWTLSParameters()
 //        if let tlsSettings = tlsSettings as? [String: AnyObject] {
@@ -256,7 +256,7 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
      - parameter tag:  The tag identifying the data in the callback delegate method.
      - warning: This should only be called after the last write is finished, i.e., `delegate?.didWriteData()` is called.
      */
-    public func writeData(_ data: Data, withTag tag: Int) {
+    open func writeData(_ data: Data, withTag tag: Int) {
         sendData(data: data, withTag: tag)
     }
 
@@ -368,13 +368,13 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
         queue.async(execute: block)
     }
 
-    public func socketConnectd(){
+    open func socketConnectd(){
         if let d = self.delegate {
             d.didConnect(self)
         }
         
     }
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         guard keyPath == "state" else {
             return
@@ -435,7 +435,7 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
         Xsocket.log("\(cIDString) state:",items:connection.state.description, level: .Debug)
     }
 
-    func readCallback(data: Data?, tag: Int) {
+    open func readCallback(data: Data?, tag: Int) {
         guard let data = data else {
             Xsocket.log("\(cIDString) read nil", level: .Debug)
             return
@@ -463,7 +463,7 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
         }
     }
 
-    public func sendData(data: Data, withTag tag: Int) {
+    open  func sendData(data: Data, withTag tag: Int) {
         if writePending {
             Xsocket.log("Socket-\(cID)  writePending error", level: .Debug)
             return
@@ -517,7 +517,7 @@ public class NWTCPSocket: NSObject, RawSocketProtocol {
         return wholeData
     }
 
-    func cancel() {
+   open  func cancel() {
         if connection != nil {
             connection!.cancel()
         }
