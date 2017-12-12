@@ -114,7 +114,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
     }
     
     /// The source port.
-    open var sourcePort: Port? {
+    open var sourcePort: XPort? {
         //fixme
         //return Port(port: socket.localPort)
         return nil
@@ -130,7 +130,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
     /// The destination port.
     ///
     /// - note: Always returns `nil`.
-    open var destinationPort: Port? {
+    open var destinationPort: XPort? {
         return nil
     }
     

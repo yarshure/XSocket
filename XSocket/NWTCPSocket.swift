@@ -155,7 +155,7 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
     /// The source port.
     ///
     /// - note: Always returns `nil`.
-    public var sourcePort: Port? {
+    public var sourcePort: XPort? {
         return nil
     }
 
@@ -186,7 +186,7 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
     /// The destination port.
     ///
     /// - note: Always returns `nil`.
-    public var destinationPort: Port? {
+    public var destinationPort: XPort? {
         return nil
     }
 

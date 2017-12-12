@@ -71,13 +71,13 @@ public protocol RawSocketProtocol {
     var sourceIPAddress: IPv4Address? { get }
     
     /// The source port.
-    var sourcePort: Port? { get }
+    var sourcePort: XPort? { get }
     
     /// The destination address.
     var destinationIPAddress: IPv4Address? { get }
     
     /// The destination port.
-    var destinationPort: Port? { get }
+    var destinationPort: XPort? { get }
     
     /// cell or wifi
     var useCell:Bool{get}
