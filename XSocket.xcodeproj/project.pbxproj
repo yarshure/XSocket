@@ -214,7 +214,7 @@
 		691EBD941FC5705B005FDCAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = yarshure;
 				TargetAttributes = {
 					691EBD9C1FC5705B005FDCAF = {
@@ -476,7 +476,7 @@
 		691EBE4C1FC66E61005FDCAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -504,7 +504,7 @@
 		691EBE4D1FC66E61005FDCAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
