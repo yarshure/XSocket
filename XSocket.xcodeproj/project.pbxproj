@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6913C3B71FDFD64A006483C1 /* Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913C3B61FDFD64A006483C1 /* Port.swift */; };
 		6913C3B81FDFD64A006483C1 /* Port.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913C3B61FDFD64A006483C1 /* Port.swift */; };
+		6913C4151FE12620006483C1 /* RAWUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913C4141FE12620006483C1 /* RAWUDPSocket.swift */; };
+		6913C4161FE12620006483C1 /* RAWUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913C4141FE12620006483C1 /* RAWUDPSocket.swift */; };
+		6913C4181FE12636006483C1 /* NWUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913C4171FE12636006483C1 /* NWUDPSocket.swift */; };
+		6913C4191FE12636006483C1 /* NWUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913C4171FE12636006483C1 /* NWUDPSocket.swift */; };
 		691EBDA21FC5705B005FDCAF /* XSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 691EBDA01FC5705B005FDCAF /* XSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		691EBDA91FC5723B005FDCAF /* GCDTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDA81FC5723B005FDCAF /* GCDTCPSocket.swift */; };
 		691EBDAB1FC57242005FDCAF /* NWTCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDAA1FC57242005FDCAF /* NWTCPSocket.swift */; };
@@ -35,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		6913C3B61FDFD64A006483C1 /* Port.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Port.swift; sourceTree = "<group>"; };
+		6913C4141FE12620006483C1 /* RAWUDPSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAWUDPSocket.swift; sourceTree = "<group>"; };
+		6913C4171FE12636006483C1 /* NWUDPSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NWUDPSocket.swift; sourceTree = "<group>"; };
 		691EBD9D1FC5705B005FDCAF /* XSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		691EBDA01FC5705B005FDCAF /* XSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSocket.h; sourceTree = "<group>"; };
 		691EBDA11FC5705B005FDCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,9 +108,11 @@
 		691EBD9F1FC5705B005FDCAF /* XSocket */ = {
 			isa = PBXGroup;
 			children = (
+				6913C4171FE12636006483C1 /* NWUDPSocket.swift */,
 				691EBDB41FC5736F005FDCAF /* IPAddress.swift */,
 				6913C3B61FDFD64A006483C1 /* Port.swift */,
 				691EBDB01FC5732C005FDCAF /* RawSocketProtocol.swift */,
+				6913C4141FE12620006483C1 /* RAWUDPSocket.swift */,
 				691EBDA81FC5723B005FDCAF /* GCDTCPSocket.swift */,
 				691EBDAA1FC57242005FDCAF /* NWTCPSocket.swift */,
 				691EBDB21FC57341005FDCAF /* StreamScanner.swift */,
@@ -262,11 +270,13 @@
 			files = (
 				691EBDB91FC57399005FDCAF /* RawSocketFactory.swift in Sources */,
 				691EBDBB1FC573BA005FDCAF /* Xsocket.swift in Sources */,
+				6913C4151FE12620006483C1 /* RAWUDPSocket.swift in Sources */,
 				691EBDB31FC57341005FDCAF /* StreamScanner.swift in Sources */,
 				691EBDA91FC5723B005FDCAF /* GCDTCPSocket.swift in Sources */,
 				691EBDAB1FC57242005FDCAF /* NWTCPSocket.swift in Sources */,
 				691EBDB51FC5736F005FDCAF /* IPAddress.swift in Sources */,
 				6913C3B71FDFD64A006483C1 /* Port.swift in Sources */,
+				6913C4181FE12636006483C1 /* NWUDPSocket.swift in Sources */,
 				691EBDB11FC5732C005FDCAF /* RawSocketProtocol.swift in Sources */,
 				691EBDB71FC57385005FDCAF /* Opt.swift in Sources */,
 			);
@@ -278,11 +288,13 @@
 			files = (
 				691EBE551FC66E81005FDCAF /* RawSocketFactory.swift in Sources */,
 				691EBE561FC66E85005FDCAF /* Xsocket.swift in Sources */,
+				6913C4161FE12620006483C1 /* RAWUDPSocket.swift in Sources */,
 				691EBE4F1FC66E6A005FDCAF /* IPAddress.swift in Sources */,
 				691EBE521FC66E74005FDCAF /* NWTCPSocket.swift in Sources */,
 				691EBE501FC66E6E005FDCAF /* RawSocketProtocol.swift in Sources */,
 				691EBE511FC66E71005FDCAF /* GCDTCPSocket.swift in Sources */,
 				6913C3B81FDFD64A006483C1 /* Port.swift in Sources */,
+				6913C4191FE12636006483C1 /* NWUDPSocket.swift in Sources */,
 				691EBE531FC66E79005FDCAF /* StreamScanner.swift in Sources */,
 				691EBE541FC66E7D005FDCAF /* Opt.swift in Sources */,
 			);
