@@ -15,7 +15,7 @@ public protocol NWUDPSocketDelegate: class {
 /// The wrapper for NWUDPSession.
 ///
 /// - note: This class is thread-safe.
-open class NWUDPSocket {
+public  class NWUDPSocket {
     fileprivate let session: NWUDPSession
     fileprivate var pendingWriteData: [Data] = []
     fileprivate var writing = false
@@ -35,7 +35,7 @@ open class NWUDPSocket {
      - parameter host: The host.
      - parameter port: The port.
      */
-    init?(host: String, port: Int) {
+    public init?(host: String, port: Int) {
         guard let udpsession = RawSocketFactory.TunnelProvider?.createUDPSession(to: NWHostEndpoint(hostname: host, port: "\(port)"), from: nil) else {
             return nil
         }
@@ -65,7 +65,7 @@ open class NWUDPSocket {
      
      - parameter data: The data to send.
      */
-    func writeData(_ data: Data) {
+    public func writeData(_ data: Data) {
         queue.async {
            
 
@@ -74,7 +74,7 @@ open class NWUDPSocket {
         }
     }
     
-    func disconnect() {
+    public func disconnect() {
         queue.async {
             self.session.cancel()
         }

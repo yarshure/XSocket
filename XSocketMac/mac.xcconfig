@@ -1,0 +1,9 @@
+//
+//  mac.xcconfig
+//  XSocket
+//
+//  Created by yarshure on 2017/12/14.
+//  Copyright © 2017年 yarshure. All rights reserved.
+//
+OTHER_LDFLAGS = $(inherited)  -framework CocoaAsyncSocket -framework AxLogger //-mbedcrypto//lcrypto // - //mbedcrypto
+LIBRARY_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/Carthage/Build/Mac/"
