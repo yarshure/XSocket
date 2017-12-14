@@ -5,6 +5,6 @@
 //  Created by yarshure on 2017/12/14.
 //  Copyright © 2017年 yarshure. All rights reserved.
 //
-
+//clang -weak_framework optional 动态加载，非启动的时候就load
 OTHER_LDFLAGS = $(inherited)  -framework CocoaAsyncSocket -framework AxLogger //-mbedcrypto//lcrypto // - //mbedcrypto
 LIBRARY_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/Carthage/Build/iOS/"
