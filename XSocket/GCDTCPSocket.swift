@@ -1,10 +1,26 @@
 import Foundation
 import CocoaAsyncSocket
-
+import NetworkExtension
 /// The TCP socket build upon `GCDAsyncSocket`.
 ///
 /// - warning: This class is not thread-safe, it is expected that the instance is accessed on the `queue` only.
 open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
+    public var remote: NWHostEndpoint?{
+        get {
+            let h = socket.connectedHost
+            let p = socket.connectedPort
+            return NWHostEndpoint.init(hostname: h!, port: String(p))
+        }
+    }
+    
+    public var local: NWHostEndpoint?{
+        get {
+            let h = socket.localHost
+            let p = socket.localPort
+            return NWHostEndpoint.init(hostname: h!, port: String(p))
+        }
+    }
+    
      /**
      Disconnect the socket immediately.
      

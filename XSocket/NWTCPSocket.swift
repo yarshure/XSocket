@@ -55,7 +55,18 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
      
      - throws: The error occured when connecting to host.
      */
+    public var remote: NWHostEndpoint?{
+        get {
+            return connection?.remoteAddress as? NWHostEndpoint
+        }
+    }
     
+    public var local: NWHostEndpoint?{
+        get {
+            
+            return connection?.localAddress as? NWHostEndpoint
+        }
+    }
     open  func connectTo(_ host: String, port: Int, delegate: RawSocketDelegate, queue: DispatchQueue, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws  {
         let endpoint = NWHostEndpoint(hostname: host, port: "\(port)")
         let tlsParameters = NWTLSParameters()

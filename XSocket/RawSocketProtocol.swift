@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import NetworkExtension
 //Mark: -
 /// The delegate protocol to handle the events from a raw TCP socket.
 public protocol RawSocketDelegate: class {
@@ -73,6 +73,8 @@ public protocol RawSocketProtocol {
     /// The source port.
     var sourcePort: XPort? { get }
     
+    var remote:NWHostEndpoint? {get}
+    var local:NWHostEndpoint? {get}
     /// The destination address.
     var destinationIPAddress: IPv4Address? { get }
     

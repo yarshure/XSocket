@@ -63,6 +63,18 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
             return nil
         }
     }
+    public var remote: NWHostEndpoint?{
+        get {
+            return session?.endpoint as? NWHostEndpoint
+        }
+    }
+    
+    public var local: NWHostEndpoint?{
+        get {
+            
+            return nil
+        }
+    }
     
     public var destinationPort: XPort? {
         get {
