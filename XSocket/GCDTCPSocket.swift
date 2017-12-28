@@ -27,7 +27,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
      - note: The socket should disconnect as soon as possible.
      */
     public func forceDisconnect(becauseOf error: Error?) {
-        
+        socket.disconnectAfterWriting()
     }
 
      /**
@@ -38,7 +38,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
      - note: Usually, any concrete implemention should wait until any pending writing data are finished then call `forceDisconnect()`.
      */
     public func disconnect(becauseOf error: Error?) {
-        
+        socket.disconnect()
     }
 
     public /**
