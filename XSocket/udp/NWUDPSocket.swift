@@ -45,7 +45,7 @@ extension NWUDPSessionState: CustomStringConvertible {
 }
 
 //var SFUDPSocketID = 0
-open class RAWUDPSocket :NSObject,RawSocketProtocol{
+open class NWUDPSocket :NSObject,RawSocketProtocol{
     public var sourceIPAddress: IPv4Address?{
         get {
             return nil
@@ -103,20 +103,6 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
     public func forceDisconnect(becauseOf error: Error?){
         
     }
-     /**
-     Connect to remote host.
-     
-     - parameter host:        Remote host.
-     - parameter port:        Remote port.
-     - parameter proxy:       proxy .
-     - parameter delegate     callback delegate
-     - parameter queue:       callback DispatchQueue
-     - parameter enableTLS:   Should TLS be enabled.
-     - parameter tlsSettings: The settings of TLS.
-     
-     - throws: The error occured when connecting to host.
-     */
-    
 
      /**
      Connect to remote host.
@@ -297,7 +283,12 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
      - note: The socket should disconnect as soon as possible.
      */
     public func forceDisconnect(){
-        fatalError()
+        queueCall {[weak self] in
+            if let strong = self {
+                strong.cancel()
+            }
+            
+        }
     }
     /**
      Disconnect the socket immediately with sessionID.
@@ -308,6 +299,12 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
         // Remote server need close event?
         //MARK: -- tod close channel
         //only for kcptun
+        queueCall {[weak self] in
+            if let strong = self {
+                strong.cancel()
+            }
+            
+        }
     }
     /**
      Send data to remote.
@@ -327,7 +324,7 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
      - warning: This should only be called after the last read is finished, i.e., `delegate?.didReadData()` is called.
      */
     public func readDataWithTag(_ tag: Int){
-        
+        fatalError("\(#file),\(#function), \(#line) and  \(#column)")
     }
     
     /**
@@ -338,7 +335,7 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
      - warning: This should only be called after the last read is finished, i.e., `delegate?.didReadData()` is called.
      */
     public func readDataToLength(_ length: Int, withTag tag: Int) {
-        
+        fatalError("\(#file),\(#function), \(#line) and  \(#column)")
     }
     
     /**
@@ -349,7 +346,7 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
      - warning: This should only be called after the last read is finished, i.e., `delegate?.didReadData()` is called.
      */
     public func readDataToData(_ data: Data, withTag tag: Int) {
-        
+        fatalError("\(#file),\(#function), \(#line) and  \(#column)")
     }
     
     /**
@@ -361,7 +358,7 @@ open class RAWUDPSocket :NSObject,RawSocketProtocol{
      - warning: This should only be called after the last read is finished, i.e., `delegate?.didReadData()` is called.
      */
     public func readDataToData(_ data: Data, withTag tag: Int, maxLength: Int){
-        
+        fatalError("\(#file),\(#function), \(#line) and  \(#column)")
     }
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
