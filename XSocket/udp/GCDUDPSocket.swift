@@ -10,6 +10,8 @@ import Foundation
 import NetworkExtension
 import CocoaAsyncSocket
 class GCDUDPSocket:NSObject, RawSocketProtocol {
+    var lastActive: Date = Date()
+    
     
     var delegate: RawSocketDelegate?
     
@@ -48,7 +50,8 @@ class GCDUDPSocket:NSObject, RawSocketProtocol {
     }
     
     func disconnect(becauseOf error: Error?) {
-        fatalError("\(#file),\(#function), \(#line) and  \(#column)")
+        self.socket?.closeAfterSending()
+       
     }
     
     func forceDisconnect(becauseOf error: Error?) {

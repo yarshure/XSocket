@@ -70,6 +70,7 @@ public protocol RawSocketProtocol {
     /// The source address.
     var sourceIPAddress: IPv4Address? { get }
     
+    var lastActive:Date {get set}
     /// The source port.
     var sourcePort: XPort? { get }
     

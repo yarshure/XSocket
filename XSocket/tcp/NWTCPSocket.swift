@@ -23,6 +23,8 @@ extension NWTCPConnectionState: CustomStringConvertible {
 }
 
 open  class NWTCPSocket: NSObject, RawSocketProtocol {
+    public var lastActive: Date = Date()
+    
     /**
      Disconnect the socket immediately.
      

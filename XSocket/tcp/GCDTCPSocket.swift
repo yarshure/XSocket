@@ -5,6 +5,8 @@ import NetworkExtension
 ///
 /// - warning: This class is not thread-safe, it is expected that the instance is accessed on the `queue` only.
 open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
+    public var lastActive: Date = Date()
+    
     public var remote: NWHostEndpoint?{
         get {
             let h = socket.connectedHost
