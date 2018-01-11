@@ -102,9 +102,18 @@ extension GCDUDPSocket:GCDAsyncUdpSocketDelegate {
         self.delegate?.didWriteData(Data(), withTag: tag, from: self)
     }
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didConnectToAddress address: Data) {
+        do {
+             try sock.beginReceiving()
+        }catch let e {
+            Xsocket.log("recv error: " + e.localizedDescription, items: "", level: .Error)
+            self.delegate?.didDisconnect(self, error: e)
+            return
+        }
+       Xsocket.log("UDP connected \(address as NSData)" , items: "", level: .Error)
         self.delegate?.didConnect(self)
     }
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+        
         self.delegate?.didReadData(data, withTag: 0, from: self)
     }
     
