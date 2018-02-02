@@ -160,3 +160,8 @@ public protocol RawSocketProtocol {
      */
     func readDataToData(_ data: Data, withTag tag: Int, maxLength: Int)
 }
+
+// Equivalent: func doSomething<T>(element1: T, element2: T) where T: MyProtocol & Equatable {
+public func compare<T: RawSocketProtocol & Equatable>(element1: T, element2: T) ->Bool {
+    return element1 == element2
+}

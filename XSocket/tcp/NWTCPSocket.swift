@@ -22,7 +22,101 @@ extension NWTCPConnectionState: CustomStringConvertible {
     }
 }
 
+#if os(iOS)
+let acceptableCipherSuites:Set<NSNumber> = [
+    
+    NSNumber(value: TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256),
+    NSNumber(value: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256),
+    NSNumber(value: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384),
+    NSNumber(value: TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384),
+    NSNumber(value: TLS_RSA_WITH_AES_256_GCM_SHA384),
+    NSNumber(value: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384),
+    NSNumber(value: TLS_DH_RSA_WITH_AES_256_GCM_SHA384)
+    
+    
+    
+    
+    //    public var TLS_RSA_WITH_AES_256_GCM_SHA384: SSLCipherSuite { get }
+    //    public var TLS_DHE_RSA_WITH_AES_128_GCM_SHA256: SSLCipherSuite { get }
+    //    public var TLS_DHE_RSA_WITH_AES_256_GCM_SHA384: SSLCipherSuite { get }
+    //    public var TLS_DH_RSA_WITH_AES_128_GCM_SHA256: SSLCipherSuite { get }
+    //    public var TLS_DH_RSA_WITH_AES_256_GCM_SHA384: SSLCipherSuite { get }
+    
+    
+]
+#else
+let acceptableCipherSuites:Set<NSNumber> = [
+    NSNumber(value: TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256),
+    NSNumber(value: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256),
+    NSNumber(value: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256),
+    NSNumber(value: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA)
+    
+]
+#endif
+
+//_ = NWHostEndpoint(hostname: host, port: "\(port)")
+//let tlsParameters = NWTLSParameters()
+//if let tlsSettings = tlsSettings as? [String: AnyObject] {
+//    tlsParameters.setValuesForKeys(tlsSettings)
+//}else {
+//    tlsParameters.sslCipherSuites = acceptableCipherSuites
+//
+//}
+//let v = SSLProtocol.tlsProtocol12
+//tlsParameters.minimumSSLProtocolVersion = Int(v.rawValue)
+//@nonobjc public func shouldEvaluateTrustForConnection(connection: NWTCPConnection) -> Bool{
+//    return true
+//}
+//
+//@nonobjc public func evaluateTrustForConnection(connection: NWTCPConnection, peerCertificateChain: [AnyObject], completionHandler completion: @escaping (SecTrust) -> Void){
+//    
+//    let myPolicy = SecPolicyCreateSSL(true, nil)//proxy.serverAddress
+//    
+//    var possibleTrust: SecTrust?
+//    
+//    let x = SecTrustCreateWithCertificates(peerCertificateChain.first!, myPolicy,
+//                                           &possibleTrust)
+//    guard let remoteAddress = connection.remoteAddress as? NWHostEndpoint else {
+//        completion(possibleTrust!)
+//        return
+//    }
+//    Xcon.log("debug :\(remoteAddress.hostname)", level: .Debug)
+//    if x != 0 {
+//        Xcon.log("debug :\(remoteAddress.hostname) \(x)", level: .Debug)
+//    }
+//    if let trust = possibleTrust {
+//        //let's do test by ourself first
+//        
+//        var trustResult : SecTrustResultType = .invalid
+//        let r = SecTrustEvaluate(trust, &trustResult)
+//        if r != 0{
+//            Xcon.log("debug :\(remoteAddress.hostname) error code:\(r)", level: .Debug)
+//        }
+//        if trustResult == .proceed {
+//            Xcon.log("debug :\(remoteAddress.hostname) Proceed", level: .Debug)
+//        }else {
+//            Xcon.log("debug :\(remoteAddress.hostname) Proceed error", level: .Debug)
+//        }
+//        //print(trustResult)  // the result is 5, is it
+//        //kSecTrustResultRecoverableTrustFailure?
+//        
+//        completion(trust)
+//    }else {
+//        Xcon.log("debug :\(remoteAddress.hostname) error", level: .Debug)
+//    }
+//}
+
+
 open  class NWTCPSocket: NSObject, RawSocketProtocol {
+    var tlsEvaluate:Bool = false
     public var lastActive: Date = Date()
     
     /**
