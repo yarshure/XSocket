@@ -9,17 +9,22 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
     
     public var remote: NWHostEndpoint?{
         get {
-            let h = socket.connectedHost
+           
             let p = socket.connectedPort
-            return NWHostEndpoint.init(hostname: h!, port: String(p))
+            if  let h = socket.connectedHost {
+                 return NWHostEndpoint.init(hostname: h, port: String(p))
+            }
         }
     }
     
     public var local: NWHostEndpoint?{
         get {
-            let h = socket.localHost
+            
             let p = socket.localPort
-            return NWHostEndpoint.init(hostname: h!, port: String(p))
+            if let  h = socket.localHost {
+                return NWHostEndpoint.init(hostname: h!, port: String(p))
+            }
+            
         }
     }
     
