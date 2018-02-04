@@ -14,6 +14,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
             if  let h = socket.connectedHost {
                  return NWHostEndpoint.init(hostname: h, port: String(p))
             }
+            return nil
         }
     }
     
@@ -22,9 +23,9 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
             
             let p = socket.localPort
             if let  h = socket.localHost {
-                return NWHostEndpoint.init(hostname: h!, port: String(p))
+                return NWHostEndpoint.init(hostname: h, port: String(p))
             }
-            
+            return nil
         }
     }
     
