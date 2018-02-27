@@ -210,7 +210,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
      - warning: This should only be called after the last read is finished, i.e., `delegate?.didReadData()` is called.
      */
     open func readDataWithTag(_ tag: Int) {
-        socket.readData(withTimeout: -1, buffer: nil, bufferOffset: 0, maxLength: 8192, tag: tag)
+        socket.readData(withTimeout: -1, buffer: nil, bufferOffset: 0, maxLength: 12288, tag: tag)
        // socket.readData(withTimeout: -1, tag: tag)
     }
     
