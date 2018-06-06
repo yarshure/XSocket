@@ -172,6 +172,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
         try connectToHost(host, withPort: Int(port))
         self.enableTLS = enableTLS
         if enableTLS {
+            
             startTLS(tlsSettings)
         }
     }
@@ -306,7 +307,13 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
         if let settings = tlsSettings as? [String: NSNumber] {
             socket.startTLS(settings)
         } else {
-            socket.startTLS(nil)
+            var s:[String: NSObject] = [:]
+            s[GCDAsyncSocketSSLProtocolVersionMin] = NSNumber.init(value: 7)
+            s[GCDAsyncSocketSSLProtocolVersionMax] = NSNumber.init(value: 8)
+            s[GCDAsyncSocketManuallyEvaluateTrust] = NSNumber.init(value: true)
+            s[GCDAsyncSocketSSLCipherSuites] = [TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,TLS_DH_anon_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DH_DSS_WITH_AES_128_CBC_SHA,TLS_DH_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DH_anon_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_DH_DSS_WITH_AES_256_CBC_SHA,TLS_DH_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA] as NSObject;
+            //s[kCFStreamSocketSecurityLevelNegotiatedSSL as String] = kCFStreamSSLLevel;
+            socket.startTLS(s)
         }
     }
     
@@ -320,7 +327,7 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
     }
     
     open func socketDidDisconnect(_ socket: GCDAsyncSocket, withError err: Error?) {
-        delegate?.didDisconnect(self, error: nil)
+        delegate?.didDisconnect(self, error: err)
         delegate = nil
         socket.setDelegate(nil, delegateQueue: nil)
     }
@@ -330,7 +337,9 @@ open class GCDTCPSocket: NSObject, GCDAsyncSocketDelegate, RawSocketProtocol {
             delegate?.didConnect(self)
         }
     }
-    
+    open func socket(_ sock: GCDAsyncSocket, didReceive trust: SecTrust, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(true)
+    }
     open func socketDidSecure(_ sock: GCDAsyncSocket) {
         if enableTLS {
             delegate?.didConnect(self)

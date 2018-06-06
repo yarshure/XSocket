@@ -31,6 +31,10 @@
 		691EBE561FC66E85005FDCAF /* Xsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDBA1FC573BA005FDCAF /* Xsocket.swift */; };
 		6961FDD720007AA400EB5EBA /* GCDUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */; };
 		6961FDD820007AA400EB5EBA /* GCDUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */; };
+		698F7FE420A422CA003C87FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698F7FE320A422CA003C87FF /* AppDelegate.swift */; };
+		698F7FE620A422CA003C87FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698F7FE520A422CA003C87FF /* ViewController.swift */; };
+		698F7FE820A422CB003C87FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698F7FE720A422CB003C87FF /* Assets.xcassets */; };
+		698F7FEB20A422CB003C87FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698F7FE920A422CB003C87FF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,13 @@
 		691EBE491FC66E61005FDCAF /* XSocketMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSocketMac.h; sourceTree = "<group>"; };
 		691EBE4A1FC66E61005FDCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDUDPSocket.swift; sourceTree = "<group>"; };
+		698F7FE120A422CA003C87FF /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		698F7FE320A422CA003C87FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		698F7FE520A422CA003C87FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		698F7FE720A422CB003C87FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		698F7FEA20A422CB003C87FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		698F7FEC20A422CB003C87FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		698F7FED20A422CB003C87FF /* TestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestApp.entitlements; sourceTree = "<group>"; };
 		69C7DBEC1FE2487E00FB7FA2 /* ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ios.xcconfig; sourceTree = "<group>"; };
 		69C7DBED1FE2489500FB7FA2 /* mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mac.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		698F7FDE20A422CA003C87FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +96,7 @@
 			children = (
 				691EBD9F1FC5705B005FDCAF /* XSocket */,
 				691EBE481FC66E61005FDCAF /* XSocketMac */,
+				698F7FE220A422CA003C87FF /* TestApp */,
 				691EBD9E1FC5705B005FDCAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +106,7 @@
 			children = (
 				691EBD9D1FC5705B005FDCAF /* XSocket.framework */,
 				691EBE471FC66E61005FDCAF /* XSocket.framework */,
+				698F7FE120A422CA003C87FF /* TestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +164,19 @@
 				691EBDB41FC5736F005FDCAF /* IPAddress.swift */,
 			);
 			path = basic;
+			sourceTree = "<group>";
+		};
+		698F7FE220A422CA003C87FF /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				698F7FE320A422CA003C87FF /* AppDelegate.swift */,
+				698F7FE520A422CA003C87FF /* ViewController.swift */,
+				698F7FE720A422CB003C87FF /* Assets.xcassets */,
+				698F7FE920A422CB003C87FF /* Main.storyboard */,
+				698F7FEC20A422CB003C87FF /* Info.plist */,
+				698F7FED20A422CB003C87FF /* TestApp.entitlements */,
+			);
+			path = TestApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,12 +237,30 @@
 			productReference = 691EBE471FC66E61005FDCAF /* XSocket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		698F7FE020A422CA003C87FF /* TestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 698F7FEE20A422CB003C87FF /* Build configuration list for PBXNativeTarget "TestApp" */;
+			buildPhases = (
+				698F7FDD20A422CA003C87FF /* Sources */,
+				698F7FDE20A422CA003C87FF /* Frameworks */,
+				698F7FDF20A422CA003C87FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestApp;
+			productName = TestApp;
+			productReference = 698F7FE120A422CA003C87FF /* TestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		691EBD941FC5705B005FDCAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = yarshure;
 				TargetAttributes = {
@@ -222,6 +273,10 @@
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Manual;
 					};
+					698F7FE020A422CA003C87FF = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 691EBD971FC5705B005FDCAF /* Build configuration list for PBXProject "XSocket" */;
@@ -230,6 +285,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 691EBD931FC5705B005FDCAF;
 			productRefGroup = 691EBD9E1FC5705B005FDCAF /* Products */;
@@ -238,6 +294,7 @@
 			targets = (
 				691EBD9C1FC5705B005FDCAF /* XSocket */,
 				691EBE461FC66E61005FDCAF /* XSocketMac */,
+				698F7FE020A422CA003C87FF /* TestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -254,6 +311,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		698F7FDF20A422CA003C87FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				698F7FE820A422CB003C87FF /* Assets.xcassets in Resources */,
+				698F7FEB20A422CB003C87FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +362,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		698F7FDD20A422CA003C87FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				698F7FE620A422CA003C87FF /* ViewController.swift in Sources */,
+				698F7FE420A422CA003C87FF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		698F7FE920A422CB003C87FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				698F7FEA20A422CB003C87FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		691EBDA31FC5705B005FDCAF /* Debug */ = {
@@ -537,6 +623,50 @@
 			};
 			name = Release;
 		};
+		698F7FEF20A422CB003C87FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				INFOPLIST_FILE = TestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		698F7FF020A422CB003C87FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = TestApp/TestApp.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 745WQDK4L7;
+				INFOPLIST_FILE = TestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.TestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,6 +693,15 @@
 			buildConfigurations = (
 				691EBE4C1FC66E61005FDCAF /* Debug */,
 				691EBE4D1FC66E61005FDCAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		698F7FEE20A422CB003C87FF /* Build configuration list for PBXNativeTarget "TestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				698F7FEF20A422CB003C87FF /* Debug */,
+				698F7FF020A422CB003C87FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

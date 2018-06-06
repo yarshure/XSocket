@@ -519,13 +519,15 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
                 
             }
         case .cancelled:
-            queueCall {
-                if let delegate = self.delegate{
-                    delegate.didDisconnect(self, error: nil)
+            if let delegate = self.delegate{
+                queueCall { [weak self]  in
+                    
+                    delegate.didDisconnect(self!, error: nil)
                 }
                 
                 //self.delegate = nil
             }
+            
         default:
             break
 //        case .Connecting:
