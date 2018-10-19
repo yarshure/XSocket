@@ -8,7 +8,7 @@ import NetworkExtension
  - GCD: The socket based on `GCDAsyncSocket`.
  */
 public enum SocketBaseType {
-    case NW, GCD
+    case NW, GCD,Network
 }
 
 /// Factory to create `RawTCPSocket` based on configuration.
@@ -40,6 +40,8 @@ public class RawSocketFactory {
                 } else {
                     return NWTCPSocket()
                 }
+            case .some(.Network):
+                return NetworkSocket()
             }
         }else {
             //udp support
@@ -54,7 +56,10 @@ public class RawSocketFactory {
                 } else {
                     return NWUDPSocket()
                 }
+            case .some(.Network):
+                return  NetworkUDPSocket()
             }
+            
         }
         
     }

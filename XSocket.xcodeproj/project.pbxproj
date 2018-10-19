@@ -29,6 +29,10 @@
 		691EBE541FC66E7D005FDCAF /* Opt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB61FC57385005FDCAF /* Opt.swift */; };
 		691EBE551FC66E81005FDCAF /* RawSocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDB81FC57399005FDCAF /* RawSocketFactory.swift */; };
 		691EBE561FC66E85005FDCAF /* Xsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EBDBA1FC573BA005FDCAF /* Xsocket.swift */; };
+		696044872170631E002733C5 /* NetworkSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696044862170631E002733C5 /* NetworkSocket.swift */; };
+		696044882170631E002733C5 /* NetworkSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696044862170631E002733C5 /* NetworkSocket.swift */; };
+		6960448A21706449002733C5 /* NetworkUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6960448921706449002733C5 /* NetworkUDPSocket.swift */; };
+		6960448B21706449002733C5 /* NetworkUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6960448921706449002733C5 /* NetworkUDPSocket.swift */; };
 		6961FDD720007AA400EB5EBA /* GCDUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */; };
 		6961FDD820007AA400EB5EBA /* GCDUDPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */; };
 		698F7FE420A422CA003C87FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698F7FE320A422CA003C87FF /* AppDelegate.swift */; };
@@ -54,6 +58,8 @@
 		691EBE471FC66E61005FDCAF /* XSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		691EBE491FC66E61005FDCAF /* XSocketMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSocketMac.h; sourceTree = "<group>"; };
 		691EBE4A1FC66E61005FDCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		696044862170631E002733C5 /* NetworkSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSocket.swift; sourceTree = "<group>"; };
+		6960448921706449002733C5 /* NetworkUDPSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUDPSocket.swift; sourceTree = "<group>"; };
 		6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDUDPSocket.swift; sourceTree = "<group>"; };
 		698F7FE120A422CA003C87FF /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		698F7FE320A422CA003C87FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 				691EBDAA1FC57242005FDCAF /* NWTCPSocket.swift */,
 				691EBDA81FC5723B005FDCAF /* GCDTCPSocket.swift */,
 				691EBDB01FC5732C005FDCAF /* RawSocketProtocol.swift */,
+				696044862170631E002733C5 /* NetworkSocket.swift */,
 			);
 			path = tcp;
 			sourceTree = "<group>";
@@ -153,6 +160,7 @@
 			children = (
 				6913C4141FE12620006483C1 /* NWUDPSocket.swift */,
 				6961FDD620007AA400EB5EBA /* GCDUDPSocket.swift */,
+				6960448921706449002733C5 /* NetworkUDPSocket.swift */,
 			);
 			path = udp;
 			sourceTree = "<group>";
@@ -330,7 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6960448A21706449002733C5 /* NetworkUDPSocket.swift in Sources */,
 				691EBDB91FC57399005FDCAF /* RawSocketFactory.swift in Sources */,
+				696044872170631E002733C5 /* NetworkSocket.swift in Sources */,
 				6961FDD720007AA400EB5EBA /* GCDUDPSocket.swift in Sources */,
 				691EBDBB1FC573BA005FDCAF /* Xsocket.swift in Sources */,
 				6913C4151FE12620006483C1 /* NWUDPSocket.swift in Sources */,
@@ -348,7 +358,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6960448B21706449002733C5 /* NetworkUDPSocket.swift in Sources */,
 				691EBE551FC66E81005FDCAF /* RawSocketFactory.swift in Sources */,
+				696044882170631E002733C5 /* NetworkSocket.swift in Sources */,
 				6961FDD820007AA400EB5EBA /* GCDUDPSocket.swift in Sources */,
 				691EBE561FC66E85005FDCAF /* Xsocket.swift in Sources */,
 				6913C4161FE12620006483C1 /* NWUDPSocket.swift in Sources */,
