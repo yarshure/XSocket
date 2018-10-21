@@ -163,21 +163,21 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
             return connection?.localAddress as? NWHostEndpoint
         }
     }
-    open  func connectTo(_ host: String, port: Int, delegate: RawSocketDelegate, queue: DispatchQueue, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws  {
-        let endpoint = NWHostEndpoint(hostname: host, port: "\(port)")
-        let tlsParameters = NWTLSParameters()
-        if let tlsSettings = tlsSettings as? [String: AnyObject] {
-            tlsParameters.setValuesForKeys(tlsSettings)
-        }
-        
-        guard let connection = RawSocketFactory.TunnelProvider?.createTCPConnection(to: endpoint, enableTLS: enableTLS, tlsParameters: tlsParameters, delegate: nil) else {
-            // This should only happen when the extension is already stopped and `RawSocketFactory.TunnelProvider` is set to `nil`.
-            return
-        }
-        
-        self.connection = connection
-        connection.addObserver(self, forKeyPath: "state", options: [.initial, .new], context: nil)
-    }
+//    open  func connectTo(_ host: String, port: Int, delegate: RawSocketDelegate, queue: DispatchQueue, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws  {
+//        let endpoint = NWHostEndpoint(hostname: host, port: "\(port)")
+//        let tlsParameters = NWTLSParameters()
+//        if let tlsSettings = tlsSettings as? [String: AnyObject] {
+//            tlsParameters.setValuesForKeys(tlsSettings)
+//        }
+//        
+//        guard let connection = RawSocketFactory.TunnelProvider?.createTCPConnection(to: endpoint, enableTLS: enableTLS, tlsParameters: tlsParameters, delegate: nil) else {
+//            // This should only happen when the extension is already stopped and `RawSocketFactory.TunnelProvider` is set to `nil`.
+//            return
+//        }
+//        
+//        self.connection = connection
+//        connection.addObserver(self, forKeyPath: "state", options: [.initial, .new], context: nil)
+//    }
 
     public  var connection: NWTCPConnection?
     public var writePending = false
@@ -309,17 +309,27 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
      */
     open  func connectTo(_ host: String, port: UInt16, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws {
         let endpoint = NWHostEndpoint(hostname: host, port: "\(port)")
-//        let tlsParameters = NWTLSParameters()
-//        if let tlsSettings = tlsSettings as? [String: AnyObject] {
-//            tlsParameters.setValuesForKeysWithDictionary(tlsSettings)
-//        }
+        if enableTLS {
+            let tlsParameters = NWTLSParameters()
+            if let tlsSettings = tlsSettings as? [String: AnyObject] {
+                tlsParameters.setValuesForKeys(tlsSettings)
+            }
+            guard let c = RawSocketFactory.TunnelProvider?.createTCPConnection(to: endpoint, enableTLS: enableTLS, tlsParameters: tlsParameters, delegate: nil) else {
+                
+                return
+            }
+            //endpoint = nil
+            connection = c
+        }else {
+            guard let c = RawSocketFactory.TunnelProvider?.createTCPConnection(to: endpoint, enableTLS: enableTLS, tlsParameters: nil, delegate: nil) else {
+      
+                return
+            }
+            //endpoint = nil
+            connection = c
 
-        guard let c = RawSocketFactory.TunnelProvider?.createTCPConnection(to: endpoint, enableTLS: enableTLS, tlsParameters: nil, delegate: nil) else {
-            // This should only happen when the extension is already stoped and `RawSocketFactory.TunnelProvider` is set to `nil`.
-            return
         }
-        //endpoint = nil
-        connection = c
+        
         if let _ = connection!.error {
            // Xsocket.log("\(cIDString) \(e.localizedDescription) \(host):\(port)", level: .Debug)
            // throw e

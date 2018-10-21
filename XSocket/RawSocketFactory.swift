@@ -35,13 +35,26 @@ public class RawSocketFactory {
             case .some(.GCD):
                 return GCDTCPSocket()
             case nil:
-                if RawSocketFactory.TunnelProvider == nil {
-                    return GCDTCPSocket()
-                } else {
-                    return NWTCPSocket()
+                if #available(iOS 12.0,macOS 10.14, *){
+                    return NetworkSocket()
+                }else {
+                    if RawSocketFactory.TunnelProvider == nil {
+                        return GCDTCPSocket()
+                    } else {
+                        return NWTCPSocket()
+                    }
                 }
+                
             case .some(.Network):
-                return NetworkSocket()
+                if #available(iOSApplicationExtension 12.0,macOS 10.14, *) {
+                    return NetworkSocket()
+                } else {
+                    if RawSocketFactory.TunnelProvider == nil {
+                        return GCDTCPSocket()
+                    } else {
+                        return NWTCPSocket()
+                    }
+                }
             }
         }else {
             //udp support
@@ -51,11 +64,16 @@ public class RawSocketFactory {
             case .some(.GCD):
                 return GCDUDPSocket()
             case nil:
-                if RawSocketFactory.TunnelProvider == nil {
-                    return GCDUDPSocket()
-                } else {
-                    return NWUDPSocket()
+                if #available(iOS 12.0,macOS 10.14, *) {
+                     return  NetworkUDPSocket()
+                }else {
+                    if RawSocketFactory.TunnelProvider == nil {
+                        return GCDUDPSocket()
+                    } else {
+                        return NWUDPSocket()
+                    }
                 }
+                
             case .some(.Network):
                 return  NetworkUDPSocket()
             }
