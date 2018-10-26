@@ -119,18 +119,23 @@ class NetworkSocket: RawSocketProtocol {
     }
     
     func writeData(_ data: Data, withTag: Int) {
-        connection.send(content: data, completion: .contentProcessed({ (sendError) in
+        connection.send(content: data, completion: .contentProcessed({[weak self] (sendError) in
+            guard let self = self else {return}
             if let sendError = sendError {
                 // Handle error in sending
                 print(sendError)
             }else {
-                self.delegate!.didWriteData(data, withTag: withTag, from: self)
+            if let d = self.delegate {
+                    self.delegate!.didWriteData(data, withTag: withTag, from: self)
+                }
+                
             }
         }))
     }
     
     func readDataWithTag(_ tag: Int) {
-        connection.receive(minimumIncompleteLength: 1, maximumLength: 8192) { (data, ctx, yOrn, error) in
+        connection.receive(minimumIncompleteLength: 1, maximumLength: 8192) {[weak self]  (data, ctx, yOrn, error) in
+            guard let self = self else {return}
             if let error = error {
                 // Handle error in reading
                 self.delegate!.didDisconnect(self, error: error)
