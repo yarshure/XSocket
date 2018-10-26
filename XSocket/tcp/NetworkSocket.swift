@@ -11,7 +11,7 @@ import Network
 import NetworkExtension
 @available(iOSApplicationExtension 12.0, macOS 10.14 ,*)
 class NetworkSocket: RawSocketProtocol {
-    var delegate: RawSocketDelegate?
+    weak var delegate: RawSocketDelegate?
     
     func forceDisconnect(_ sessionID: UInt32) {
         if connection != nil {
