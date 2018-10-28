@@ -17,19 +17,12 @@ public final class Xsocket {
             AxLogger.log(msg,level:level)
         }
         if debugEnable {
-            #if os(iOS)
-                if #available(iOSApplicationExtension 10.0, *) {
-                    os_log("XSocket: %@", log: .default, type: .debug, msg)
-                } else {
-                    print(msg)
-                }
-            #elseif os(OSX)
-                if #available(OSXApplicationExtension 10.12, *) {
-                    os_log("XSocket: %@", log: .default, type: .debug, msg)
-                } else {
-                     print(msg)
-                }
-            #endif
+            if #available(iOSApplicationExtension 10.0,OSXApplicationExtension 10.12, *) {
+                os_log("XSocket: %@", log: .default, type: .debug, msg)
+            } else {
+                print(msg)
+            }
+            
         }
      
     }

@@ -37,6 +37,9 @@ class NetworkSocket: RawSocketProtocol {
     
     var sourcePort: XPort?{
         get  {
+            if connection != nil {
+                //connection.
+            }
             return nil
         }
     }
@@ -55,12 +58,31 @@ class NetworkSocket: RawSocketProtocol {
     
     var destinationIPAddress: IPv4Address?{
         get  {
+            if connection != nil {
+                switch connection.endpoint {
+                case .hostPort(.ipv4(let host), let port):
+                    return IPv4Address.init(fromString: "")
+                default:
+                    break
+                }
+              
+            }
             return nil
         }
     }
     
     var destinationPort: XPort?{
         get  {
+            if connection != nil {
+                switch connection.endpoint {
+                case .hostPort(.ipv4(_), let port):
+                    return XPort.init(port: port.rawValue)
+                case .hostPort(.ipv6(_), let port):
+                    return XPort.init(port: port.rawValue)
+                default:
+                    break
+                }
+            }
             return nil
         }
     }
@@ -75,7 +97,10 @@ class NetworkSocket: RawSocketProtocol {
     func connectTo(_ host: String, port: UInt16, enableTLS: Bool, tlsSettings: [NSObject : AnyObject]?) throws {
         let p =  NWEndpoint.Port.init(rawValue: port)
         let h = NWEndpoint.Host.init(host)
+        
+        var para:NWParameters
         if enableTLS  {
+            //para = NWParameters.init(tls: NWProtocolTLS.Options.init(), tcp: <#T##NWProtocolTCP.Options#>)
             let tlsParameters = NWTLSParameters()
             if let tlsSettings = tlsSettings as? [String: AnyObject] {
                 tlsParameters.setValuesForKeys(tlsSettings)
@@ -87,6 +112,7 @@ class NetworkSocket: RawSocketProtocol {
             let c =  NWConnection.init(host:  h  , port: p!, using: .tcp)
              self.connection = c 
         }
+        
         connection.stateUpdateHandler = { (newState) in
             switch newState {
             case .ready:
@@ -95,17 +121,18 @@ class NetworkSocket: RawSocketProtocol {
                 self.delegate!.didConnect(self)
             case .waiting(let error):
             // Handle connection waiting for network
-                print(error)
+                Xsocket.log(error.debugDescription, items: self.connection!.debugDescription, level: .Debug)
             case .failed(let error):
             // Handle fatal connection error
-                print(error)
+                Xsocket.log(error.debugDescription, items: self.connection!.debugDescription, level: .Debug)
+                self.disconnect(becauseOf: error)
             case .cancelled:
-                print("cancle")
+                Xsocket.log(self.connection.debugDescription , items: "cancel", level: .Debug)
             default:
                 break
             }
         }
-    
+        self.lastActive = Date()
         connection.start(queue: queue)
         
     }
@@ -122,8 +149,9 @@ class NetworkSocket: RawSocketProtocol {
         connection.send(content: data, completion: .contentProcessed({ (sendError) in
             if let sendError = sendError {
                 // Handle error in sending
-                print(sendError)
+                Xsocket.log(sendError.debugDescription, items: self.connection!.debugDescription, level: .Debug)
             }else {
+                self.lastActive = Date()
                 self.delegate!.didWriteData(data, withTag: withTag, from: self)
             }
         }))
@@ -136,6 +164,7 @@ class NetworkSocket: RawSocketProtocol {
                 self.delegate!.didDisconnect(self, error: error)
             } else {
                 // Parse out body length
+                self.lastActive = Date()
                 if let d = data {
                     self.delegate!.didReadData(d, withTag: tag, from: self)
                 }
