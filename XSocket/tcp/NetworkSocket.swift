@@ -98,7 +98,7 @@ class NetworkSocket: RawSocketProtocol {
         let p =  NWEndpoint.Port.init(rawValue: port)
         let h = NWEndpoint.Host.init(host)
         
-        var para:NWParameters
+        //var para:NWParameters
         if enableTLS  {
             //para = NWParameters.init(tls: NWProtocolTLS.Options.init(), tcp: <#T##NWProtocolTCP.Options#>)
             let tlsParameters = NWTLSParameters()
@@ -138,7 +138,9 @@ class NetworkSocket: RawSocketProtocol {
     }
     
     func disconnect(becauseOf error: Error?) {
-        
+        if let d = self.delegate {
+            d.disconnect(becauseOf: error)
+        }
     }
     
     func forceDisconnect(becauseOf error: Error?) {
@@ -146,27 +148,32 @@ class NetworkSocket: RawSocketProtocol {
     }
     
     func writeData(_ data: Data, withTag: Int) {
-        connection.send(content: data, completion: .contentProcessed({ (sendError) in
+        connection.send(content: data, completion: .contentProcessed({[weak self] (sendError) in
+            guard let self = self else {return}
+            guard let delegate = self.delegate else {return}
             if let sendError = sendError {
                 // Handle error in sending
                 Xsocket.log(sendError.debugDescription, items: self.connection!.debugDescription, level: .Debug)
+                 self.disconnect(becauseOf: sendError)
             }else {
                 self.lastActive = Date()
-                self.delegate!.didWriteData(data, withTag: withTag, from: self)
+                delegate.didWriteData(data, withTag: withTag, from: self)
             }
         }))
     }
     
     func readDataWithTag(_ tag: Int) {
-        connection.receive(minimumIncompleteLength: 1, maximumLength: 8192) { (data, ctx, yOrn, error) in
+        connection.receive(minimumIncompleteLength: 1, maximumLength: 8192) {[weak self]  (data, ctx, yOrn, error) in
+            guard let self = self else {return}
+            guard let delegate = self.delegate else {return}
             if let error = error {
                 // Handle error in reading
-                self.delegate!.didDisconnect(self, error: error)
+                delegate.didDisconnect(self, error: error)
             } else {
                 // Parse out body length
                 self.lastActive = Date()
                 if let d = data {
-                    self.delegate!.didReadData(d, withTag: tag, from: self)
+                    delegate.didReadData(d, withTag: tag, from: self)
                 }
                 
             }
@@ -186,7 +193,11 @@ class NetworkSocket: RawSocketProtocol {
         
     }
     deinit {
-        
+        if connection != nil {
+            connection.cancel()
+        }
+        print("NetworkSocket deinit")
+         Xsocket.log("NetworkSocket deinit ", level: .Trace)
     }
     
 }
