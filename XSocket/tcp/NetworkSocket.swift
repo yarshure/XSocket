@@ -154,7 +154,7 @@ class NetworkSocket: RawSocketProtocol {
             if let sendError = sendError {
                 // Handle error in sending
                 Xsocket.log(sendError.debugDescription, items: self.connection!.debugDescription, level: .Debug)
-                 self.disconnect(becauseOf: sendError)
+                 delegate.didDisconnect(self, error: error)
             }else {
                 self.lastActive = Date()
                 delegate.didWriteData(data, withTag: withTag, from: self)

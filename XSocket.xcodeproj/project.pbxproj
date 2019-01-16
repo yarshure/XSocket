@@ -48,6 +48,7 @@
 		69ABB8B9218345BA0064E34E /* AxLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B5218345AE0064E34E /* AxLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69ABB8BB218345BA0064E34E /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B4218345AE0064E34E /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69ABB8BD21834EC10064E34E /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABB8BC21834EC10064E34E /* Connect.swift */; };
+		69E42E382185855800BBB97D /* ConnectU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E42E372185855800BBB97D /* ConnectU.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		69ABB8BC21834EC10064E34E /* Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
 		69C7DBEC1FE2487E00FB7FA2 /* ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ios.xcconfig; sourceTree = "<group>"; };
 		69C7DBED1FE2489500FB7FA2 /* mac.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = mac.xcconfig; sourceTree = "<group>"; };
+		69E42E372185855800BBB97D /* ConnectU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectU.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 				69ABB8952183427F0064E34E /* Info.plist */,
 				69ABB8962183427F0064E34E /* TestApp.entitlements */,
 				69ABB8BC21834EC10064E34E /* Connect.swift */,
+				69E42E372185855800BBB97D /* ConnectU.swift */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E42E382185855800BBB97D /* ConnectU.swift in Sources */,
 				69ABB88F2183427E0064E34E /* ViewController.swift in Sources */,
 				69ABB88D2183427E0064E34E /* AppDelegate.swift in Sources */,
 				69ABB8BD21834EC10064E34E /* Connect.swift in Sources */,
@@ -805,7 +809,6 @@
 				DEVELOPMENT_TEAM = 745WQDK4L7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = TestApp/Info.plist;
@@ -832,7 +835,6 @@
 				DEVELOPMENT_TEAM = 745WQDK4L7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = TestApp/Info.plist;

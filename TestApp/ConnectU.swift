@@ -1,14 +1,14 @@
 //
-//  Connect.swift
+//  ConnectU.swift
 //  TestApp
 //
-//  Created by yarshure on 2018/10/26.
+//  Created by yarshure on 28/10/2018.
 //  Copyright © 2018 yarshure. All rights reserved.
 //
-
+//UDP Test
 import Foundation
 import XSocket
-class Connect:RawSocketDelegate {
+class ConnectU:RawSocketDelegate {
     func didDisconnect(_ socket: RawSocketProtocol, error: Error?) {
         print("didDisconnect ", socket,error as Any)
     }
@@ -49,13 +49,13 @@ class Connect:RawSocketDelegate {
     var readIndex:Int = 0
     var lineIndex:Int = 0
     var socket:RawSocketProtocol?
-   
+    
     func start() {
-        socket = RawSocketFactory.getRawSocket()
+        socket = RawSocketFactory.getRawSocket(type: nil, tcp: false)
         Xsocket.debugEnable = true
         socket!.queue = DispatchQueue.main
         socket!.delegate = self
-       
+        
         do {
             try socket!.connectTo("127.0.0.1", port: 12345, enableTLS: false, tlsSettings: [:])
         }catch let e {

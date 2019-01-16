@@ -75,7 +75,10 @@ public class RawSocketFactory {
                 }
                 
             case .some(.Network):
-                return  NetworkUDPSocket()
+                if #available(iOS 12.0,macOS 10.14, *) {
+                    return  NetworkUDPSocket()
+                }
+                return NWUDPSocket()
             }
             
         }
