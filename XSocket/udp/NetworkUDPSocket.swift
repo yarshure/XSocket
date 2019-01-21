@@ -61,7 +61,9 @@ class NetworkUDPSocket: RawSocketProtocol {
             case .failed(let error):
                 // Handle fatal connection error
                 Xsocket.log(error.debugDescription, items: self.connection!.debugDescription, level: .Debug)
-                self.disconnect(becauseOf: error)
+                //bug here
+//                self.disconnect(becauseOf: error)
+                self.delegate!.didConnect(self)
             case .cancelled:
                 Xsocket.log(self.connection.debugDescription , items: "cancel", level: .Debug)
             default:
@@ -86,7 +88,9 @@ class NetworkUDPSocket: RawSocketProtocol {
             if let sendError = sendError {
                 // Handle error in sending
                 Xsocket.log(sendError.debugDescription, items: self.connection!.debugDescription, level: .Debug)
-                self.disconnect(becauseOf: sendError)
+                //self.disconnect(becauseOf: sendError)
+                self.connection.cancel()
+                delegate.didDisconnect(self, error: sendError)
             }else {
                 self.lastActive = Date()
                 delegate.didWriteData(data, withTag: withTag, from: self)
@@ -100,6 +104,7 @@ class NetworkUDPSocket: RawSocketProtocol {
             guard let delegate = self.delegate else {return}
             if let error = error {
                 // Handle error in reading
+                self.connection.cancel()
                 delegate.didDisconnect(self, error: error)
             } else {
                 // Parse out body length

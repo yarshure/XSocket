@@ -125,7 +125,9 @@ class NetworkSocket: RawSocketProtocol {
             case .failed(let error):
             // Handle fatal connection error
                 Xsocket.log(error.debugDescription, items: self.connection!.debugDescription, level: .Debug)
-                self.disconnect(becauseOf: error)
+                self.delegate?.didDisconnect(self, error: error)
+                self.connection.cancel()
+                
             case .cancelled:
                 Xsocket.log(self.connection.debugDescription , items: "cancel", level: .Debug)
             default:
