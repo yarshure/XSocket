@@ -140,11 +140,15 @@ class NetworkSocket: RawSocketProtocol {
     }
     
     func disconnect(becauseOf error: Error?) {
-        connection.cancel()
+        if connection != nil && connection.state != .cancelled {
+            connection.cancel()
+        }
     }
     
     func forceDisconnect(becauseOf error: Error?) {
-        connection.cancel()
+        if connection != nil && connection.state != .cancelled {
+            connection.cancel()
+        }
     }
     
     func writeData(_ data: Data, withTag: Int) {
@@ -154,8 +158,9 @@ class NetworkSocket: RawSocketProtocol {
             if let sendError = sendError {
                 // Handle error in sending
                 Xsocket.log(sendError.debugDescription, items: self.connection!.debugDescription, level: .Debug)
-                delegate.didDisconnect(self, error: sendError)
                 self.connection!.cancel()
+                delegate.didDisconnect(self, error: sendError)
+                
                 
             }else {
                 self.lastActive = Date()
@@ -196,11 +201,11 @@ class NetworkSocket: RawSocketProtocol {
         
     }
     deinit {
-        if connection != nil {
+        if connection != nil && connection.state != .cancelled {
             connection.cancel()
         }
         print("NetworkSocket deinit")
-         Xsocket.log("NetworkSocket deinit ", level: .Trace)
+        Xsocket.log("NetworkSocket deinit ", level: .Trace)
     }
     
 }
