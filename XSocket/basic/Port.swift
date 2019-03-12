@@ -58,7 +58,12 @@ public struct XPort: CustomStringConvertible, Hashable, ExpressibleByIntegerLite
     
     /// The hash value of the port.
     public var hashValue: Int {
-        return Int(inport)
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
+    }
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(inport.hashValue)
     }
     
     /**

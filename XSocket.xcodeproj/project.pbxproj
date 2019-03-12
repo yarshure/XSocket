@@ -391,6 +391,7 @@
 					};
 					69ABB8892183427E0064E34E = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -819,7 +820,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -844,7 +845,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
