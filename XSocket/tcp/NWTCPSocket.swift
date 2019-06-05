@@ -1,7 +1,7 @@
 import Foundation
 import NetworkExtension
 
-import AxLogger
+
 var NWTCPSocketID:Int = 0
 //import CocoaLumberjackSwift
 var SFTCPSocketID:Int = 0
