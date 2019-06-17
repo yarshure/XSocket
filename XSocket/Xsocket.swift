@@ -9,7 +9,9 @@
 import Foundation
 
 import os.log
+#if !os(iOS)
 import Logging
+#endif
 public enum LoggerLevel:Int,CustomStringConvertible{
     // 调整优先级
     case Error = 0
@@ -41,7 +43,11 @@ public final class Xsocket {
         }
         if debugEnable {
             if #available(iOSApplicationExtension 10.0,OSXApplicationExtension 10.12, *) {
-                os_log("XSocket: %@", log: .default, type: .debug, msg)
+                if #available(OSX 10.12,iOS 10.0, *) {
+                    os_log("XSocket: %@", log: .default, type: .debug, msg)
+                } else {
+                    // Fallback on earlier versions
+                }
             } else {
                 print(msg)
             }

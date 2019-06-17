@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AxLogger",
+        "repositoryURL": "https://github.com/networkextension/AxLogger",
+        "state": {
+          "branch": "SwiftPM",
+          "revision": "51ff1a3b3d18a8855e0bdbb50c9bea6638998c14",
+          "version": null
+        }
+      },
+      {
+        "package": "CocoaAsyncSocket",
+        "repositoryURL": "https://github.com/yarshure/CocoaAsyncSocket",
+        "state": {
+          "branch": "SwiftPM",
+          "revision": "1a78eef91bee75c0e73f49110d1ea7df27c8bceb",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
