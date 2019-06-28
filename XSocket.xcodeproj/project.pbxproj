@@ -43,8 +43,6 @@
 		69ABB8942183427F0064E34E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ABB8922183427F0064E34E /* Main.storyboard */; };
 		69ABB8AF2183455A0064E34E /* XSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691EBE471FC66E61005FDCAF /* XSocket.framework */; };
 		69ABB8B02183455A0064E34E /* XSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 691EBE471FC66E61005FDCAF /* XSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		69ABB8B6218345AE0064E34E /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B4218345AE0064E34E /* CocoaAsyncSocket.framework */; };
-		69ABB8B7218345AE0064E34E /* AxLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B5218345AE0064E34E /* AxLogger.framework */; };
 		69ABB8B9218345BA0064E34E /* AxLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B5218345AE0064E34E /* AxLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69ABB8BB218345BA0064E34E /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B4218345AE0064E34E /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69ABB8BD21834EC10064E34E /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABB8BC21834EC10064E34E /* Connect.swift */; };
@@ -128,8 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69ABB8B6218345AE0064E34E /* CocoaAsyncSocket.framework in Frameworks */,
-				69ABB8B7218345AE0064E34E /* AxLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

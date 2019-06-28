@@ -39,16 +39,12 @@ let acceptableCipherSuites:Set<NSNumber> = [
     NSNumber(value: TLS_RSA_WITH_AES_256_GCM_SHA384),
     NSNumber(value: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384),
     NSNumber(value: TLS_DH_RSA_WITH_AES_256_GCM_SHA384)
-    
-    
-    
-    
+
     //    public var TLS_RSA_WITH_AES_256_GCM_SHA384: SSLCipherSuite { get }
     //    public var TLS_DHE_RSA_WITH_AES_128_GCM_SHA256: SSLCipherSuite { get }
     //    public var TLS_DHE_RSA_WITH_AES_256_GCM_SHA384: SSLCipherSuite { get }
     //    public var TLS_DH_RSA_WITH_AES_128_GCM_SHA256: SSLCipherSuite { get }
     //    public var TLS_DH_RSA_WITH_AES_256_GCM_SHA384: SSLCipherSuite { get }
-    
     
 ]
 #else
@@ -620,7 +616,10 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
 
    open  func cancel() {
         if connection != nil {
+            connection!.writeClose()
+            
             connection!.cancel()
+            connection!.removeObserver(self, forKeyPath: "state")
         }
         
     }
@@ -635,16 +634,7 @@ open  class NWTCPSocket: NSObject, RawSocketProtocol {
     deinit {
         delegate = nil
         if connection != nil {
-            Xsocket.log("\(cIDString) .", level: .Debug)
-            connection!.removeObserver(self, forKeyPath: "state")
-            if connection!.state != .cancelled  {
-                connection!.cancel()
-            }
-            //connection.writeClose()
-            Xsocket.log("\(cIDString) deiniting state:\(connection!.state.description)", level: .Debug)
-            
-            connection = nil
-
+             connection = nil
         }
         Xsocket.log("Socket-\(cID) clean", level: .Info)
         queue = nil
