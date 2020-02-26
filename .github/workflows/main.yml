@@ -16,7 +16,7 @@ jobs:
       run: |
         carthage bootstrap --no-use-binaries --platform iOS --cache-builds 
         xcodebuild build 
-        zip  XSocket.framework  XSocket/build/Release-iphoneos/XSocket.framework/
+        zip -r  XSocket.framework  build/Release-iphoneos/XSocket.framework/
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
