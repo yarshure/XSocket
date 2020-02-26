@@ -1,0 +1,20 @@
+name: CI
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: |
+      carthage bootstrap --no-use-binaries --platform iOS --cache-builds 
+      xcodebuild build 
+      
+      
