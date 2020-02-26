@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
       run: |
-      carthage bootstrap --no-use-binaries --platform iOS --cache-builds 
-      xcodebuild build 
+        carthage bootstrap --no-use-binaries --platform iOS --cache-builds 
+        xcodebuild build 
       
       
