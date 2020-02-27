@@ -14,9 +14,11 @@ jobs:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
       run: |
+        pwd
         carthage bootstrap --no-use-binaries --platform iOS --cache-builds 
         xcodebuild build 
         zip -r  XSocket.framework  build/Release-iphoneos/XSocket.framework/
+        ls -alt
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
