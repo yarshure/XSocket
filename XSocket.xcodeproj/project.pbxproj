@@ -658,7 +658,7 @@
 				);
 				INFOPLIST_FILE = XSocket/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -690,7 +690,7 @@
 				);
 				INFOPLIST_FILE = XSocket/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -722,7 +722,7 @@
 				INFOPLIST_FILE = XSocketMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
 				PRODUCT_NAME = XSocket;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -753,7 +753,7 @@
 				INFOPLIST_FILE = XSocketMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.XSocket;
 				PRODUCT_NAME = XSocket;
 				PROVISIONING_PROFILE_SPECIFIER = "";
