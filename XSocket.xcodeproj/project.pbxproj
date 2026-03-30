@@ -43,8 +43,6 @@
 		69ABB8942183427F0064E34E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ABB8922183427F0064E34E /* Main.storyboard */; };
 		69ABB8AF2183455A0064E34E /* XSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 691EBE471FC66E61005FDCAF /* XSocket.framework */; };
 		69ABB8B02183455A0064E34E /* XSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 691EBE471FC66E61005FDCAF /* XSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		69ABB8B6218345AE0064E34E /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B4218345AE0064E34E /* CocoaAsyncSocket.framework */; };
-		69ABB8B7218345AE0064E34E /* AxLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B5218345AE0064E34E /* AxLogger.framework */; };
 		69ABB8B9218345BA0064E34E /* AxLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B5218345AE0064E34E /* AxLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69ABB8BB218345BA0064E34E /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ABB8B4218345AE0064E34E /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		69ABB8BD21834EC10064E34E /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ABB8BC21834EC10064E34E /* Connect.swift */; };
@@ -128,8 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69ABB8B6218345AE0064E34E /* CocoaAsyncSocket.framework in Frameworks */,
-				69ABB8B7218345AE0064E34E /* AxLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +368,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = yarshure;
 				TargetAttributes = {
 					691EBD9C1FC5705B005FDCAF = {
@@ -391,6 +387,7 @@
 					};
 					69ABB8892183427E0064E34E = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -668,7 +665,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -699,7 +696,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -709,7 +706,7 @@
 			baseConfigurationReference = 69C7DBED1FE2489500FB7FA2 /* mac.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -731,7 +728,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -740,7 +737,7 @@
 			baseConfigurationReference = 69C7DBED1FE2489500FB7FA2 /* mac.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -762,7 +759,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -819,7 +816,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -844,7 +841,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yarshure.TestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

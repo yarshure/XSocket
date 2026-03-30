@@ -39,7 +39,10 @@ extension NWUDPSessionState: CustomStringConvertible {
         case .failed:return "failed"
             
             /*! @constant NWUDPSessionStateCancelled The session has been cancelled by the client */
-        case .cancelled:return "cancelled"
+        case .cancelled:
+            return "cancelled"
+        @unknown default:
+            return "unknown"
         }
     }
 }

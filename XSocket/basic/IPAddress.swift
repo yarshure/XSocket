@@ -59,7 +59,13 @@ open class IPv4Address: IPAddress {
     }
     
     open var hashValue: Int {
-        return _in_addr.s_addr.hashValue
+
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
+    }
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(_in_addr.s_addr.hashValue)
     }
     
     open var UInt32InHostOrder: UInt32 {
@@ -128,9 +134,16 @@ public class IPv6Address: IPAddress {
     }
     
     open var hashValue: Int {
-        return withUnsafeBytes(of: &_in6_addr.__u6_addr) {
+        
+        var hasher = Hasher()
+        self.hash(into: &hasher)
+        return hasher.finalize()
+    }
+    public func hash(into hasher: inout Hasher) {
+        let h =  withUnsafeBytes(of: &_in6_addr.__u6_addr) {
             return $0.load(as: Int.self) ^ $0.load(fromByteOffset: MemoryLayout<Int>.size, as: Int.self)
         }
+        return hasher.combine(h.hashValue)
     }
 }
 
